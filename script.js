@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "5215555555555";
+const WHATSAPP_NUMBER = "593969581620";
 
 const productos = [
     {
@@ -214,6 +214,17 @@ function manejarErrorImagen(img) {
     img.style.padding = '2rem';
 }
 
+// Mapa de colores y fondos por categoría
+const CATEGORIA_ESTILOS = {
+    'Grupos Completos': { color: '#7c3aed', bg: '#f3f0ff' },
+    'Transmisión':      { color: '#f59e0b', bg: '#fffbeb' },
+    'Frenos':           { color: '#ef4444', bg: '#fff5f5' },
+    'Pedales y Eje':    { color: '#10b981', bg: '#ecfdf5' },
+    'Electrónicos':     { color: '#0ea5e9', bg: '#f0f9ff' },
+    'E-Bike / MTB':     { color: '#06b6d4', bg: '#ecfeff' },
+    'Accesorios':       { color: '#f97316', bg: '#fff7ed' },
+};
+
 function renderizarProductos(productosARenderizar) {
     productsGrid.innerHTML = '';
 
@@ -225,20 +236,26 @@ function renderizarProductos(productosARenderizar) {
     const fragment = document.createDocumentFragment();
 
     productosARenderizar.forEach(producto => {
+        const estilos = CATEGORIA_ESTILOS[producto.categoria] || { color: '#6b7280', bg: '#f5f5f5' };
         const article = document.createElement('article');
         article.className = 'product-card';
+        article.style.setProperty('--cat-color', estilos.color);
+        article.style.setProperty('--cat-bg', estilos.bg);
+
         article.innerHTML = `
             <div class="product-image-container">
                 <img src="${producto.imagen}" alt="${producto.titulo}" class="product-image" loading="lazy">
+                <span class="product-category-badge">${producto.categoria}</span>
             </div>
             <div class="product-info">
-                <span class="product-category">${producto.categoria}</span>
                 <h3 class="product-title">${producto.titulo}</h3>
                 <p class="product-description">${producto.descripcion}</p>
-                <div class="product-price">${producto.precio}</div>
-                <button class="btn-whatsapp add-to-cart-btn" data-id="${producto.id}">
-                    <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
-                </button>
+                <div class="product-footer">
+                    <span class="product-price">${producto.precio}</span>
+                    <button class="btn-whatsapp add-to-cart-btn" data-id="${producto.id}" aria-label="Añadir ${producto.titulo} al carrito">
+                        <i class="fa-solid fa-cart-plus"></i> Añadir
+                    </button>
+                </div>
             </div>
         `;
 
@@ -253,6 +270,7 @@ function renderizarProductos(productosARenderizar) {
 
     productsGrid.appendChild(fragment);
 }
+
 
 function scrollFilterIntoView(btn) {
     if (!btn) return;
@@ -340,7 +358,7 @@ function cambiarCantidad(idProducto, cambio) {
 }
 
 function vaciarCarrito() {
-    if(confirm('¿Estás seguro de vaciar todo tu pedido?')) {
+    if (confirm('¿Estás seguro de vaciar todo tu pedido?')) {
         carrito = [];
         actualizarCarritoUI();
     }
@@ -350,7 +368,7 @@ function actualizarCarritoUI() {
     // Actualizar contador
     const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
     cartCount.textContent = totalItems;
-    
+
     // Animar contador
     cartCount.style.transform = 'scale(1.3)';
     setTimeout(() => cartCount.style.transform = 'scale(1)', 200);
@@ -401,7 +419,7 @@ function enviarPedidoWhatsApp() {
     }
 
     let mensaje = `*¡Hola Súper Royal!* 🚴\nMe gustaría realizar el siguiente pedido:\n\n`;
-    
+
     carrito.forEach(item => {
         mensaje += `🔸 ${item.cantidad}x *${item.titulo}* (${item.precio})\n`;
     });

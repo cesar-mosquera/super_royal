@@ -7,18 +7,28 @@
 :root {
     --primary-color: #0076ff;
     --accent-color: #ff2d55;
-    --light-bg: #f4f6f9;
+    --light-bg: #f0f2f5;
     --light-surface: #ffffff;
     --text-main: #1c1c1e;
     --text-muted: #7c7c80;
     --whatsapp-color: #25D366;
     --whatsapp-hover: #128C7E;
     --transition-speed: 0.3s;
-    --border-radius: 16px;
-    --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 12px 28px rgba(0, 118, 255, 0.15);
+    --border-radius: 14px;
+    --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.14);
     --max-width: 1200px;
     --header-height: 56px;
+
+    /* Colores por categoría */
+    --cat-grupos:      #7c3aed; /* morado */
+    --cat-transmision: #f59e0b; /* ámbar */
+    --cat-frenos:      #ef4444; /* rojo */
+    --cat-pedales:     #10b981; /* verde esmeralda */
+    --cat-electronicos:#0ea5e9; /* celeste */
+    --cat-ebike:       #06b6d4; /* cian */
+    --cat-accesorios:  #f97316; /* naranja */
+    --cat-default:     #6b7280; /* gris */
 }
 
 * {
@@ -56,72 +66,91 @@ a {
    HERO SECTION
    ============================================ */
 .hero {
-    background-color: #0057c8;
+    background-color: #1a1a2e;
     background-image:
         linear-gradient(to bottom,
-            rgba(0, 20, 80, 0.45) 0%,
-            rgba(0, 40, 120, 0.25) 40%,
-            rgba(0, 20, 60, 0.60) 100%
+            rgba(0, 0, 0, 0.20) 0%,
+            rgba(0, 0, 0, 0.05) 50%,
+            rgba(0, 0, 0, 0.55) 100%
         ),
-        url('https://images.unsplash.com/photo-1544191696-15693072e0d0?auto=format&fit=crop&w=1200&q=60');
-    background-size: cover;
-    background-position: center 40%;
+        url('assets/img/hero.webp');
+    background-size: contain;       /* imagen completa, sin recorte */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #1a1010;      /* relleno si hay barras */
+    width: 100%;
+    aspect-ratio: 664 / 433;        /* proporción exacta de la foto */
+    max-height: 55vh;               /* no ocupa más de 55% pantalla en desktop */
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem 1.5rem;
     position: relative;
 }
 
 .hero-content {
     animation: fadeIn 0.8s ease-out;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.3rem;
+    /* Fondo semitransparente para que el texto se lea sobre la bici */
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    padding: 0.6rem 1.5rem;
+    border-radius: 12px;
 }
 
 .logo-placeholder {
-    font-size: 2rem;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 0;
-    line-height: 1;
-}
-
-.hero h1 {
-    font-size: 1.6rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0;
+    font-size: 1.8rem;
     color: #ffffff;
     line-height: 1;
 }
 
+.hero h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    color: #ffffff;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
 .slogan {
-    display: none;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 400;
+    display: block;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+@media (min-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
 }
 
 @media (min-width: 600px) {
     .hero {
-        padding: 3rem 1rem;
+        padding: 1.5rem 1rem 2rem;
     }
     .hero-content {
-        flex-direction: column;
-        gap: 0.5rem;
+        padding: 0.8rem 2.5rem;
+        gap: 0.4rem;
     }
     .logo-placeholder {
-        font-size: 3rem;
-        margin-bottom: 0.3rem;
+        font-size: 2.5rem;
     }
     .hero h1 {
         font-size: 2.8rem;
+        letter-spacing: 3px;
     }
     .slogan {
-        display: block;
-        font-size: 1.1rem;
-        color: rgba(255,255,255,0.85);
-        font-weight: 400;
+        font-size: 1rem;
     }
 }
 
@@ -215,16 +244,20 @@ a {
 /* ============================================
    PRODUCT CARD
    ============================================ */
+/* Variables de color por categoria (se sobreescriben inline via JS) */
 .product-card {
+    --cat-color: var(--cat-default);
+    --cat-bg: #f5f5f5;
     background: var(--light-surface);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-subtle);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    animation: fadeIn 0.4s ease-out both;
+    border: 1px solid rgba(0,0,0,0.05);
+    animation: fadeIn 0.35s ease-out both;
+    position: relative;
 }
 
 .product-card:nth-child(1) { animation-delay: 0.02s; }
@@ -245,50 +278,77 @@ a {
     }
 }
 
+/* Franja de color superior de la tarjeta */
+.product-card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: var(--cat-color);
+    flex-shrink: 0;
+}
+
 .product-image-container {
-    height: 130px;
+    height: 120px;
     overflow: hidden;
-    background-color: #f0f2f5;
+    background: var(--cat-bg);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 0.5rem;
-    transition: transform 0.5s ease;
+    padding: 0.6rem;
+    transition: transform 0.4s ease;
 }
 
 @media (hover: hover) {
     .product-card:hover .product-image {
-        transform: scale(1.04);
+        transform: scale(1.06);
+    }
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
     }
 }
 
+/* Badge de categoría flotante */
+.product-category-badge {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: var(--cat-color);
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    line-height: 1.4;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
 .product-info {
-    padding: 0.7rem;
+    padding: 0.65rem 0.7rem 0.7rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .product-category {
-    font-size: 0.6rem;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    font-weight: 800;
-    margin-bottom: 0.2rem;
-    letter-spacing: 0.8px;
+    display: none; /* reemplazado por badge */
 }
 
 .product-title {
-    font-size: 0.85rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.82rem;
+    margin-bottom: 0.25rem;
     font-weight: 700;
     color: var(--text-main);
     line-height: 1.3;
-    /* 2 lines max */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -296,23 +356,31 @@ a {
 }
 
 .product-description {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
     margin-bottom: 0.6rem;
     flex-grow: 1;
     line-height: 1.4;
-    /* 2 lines max on mobile */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
+/* Fila precio + botón */
+.product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    margin-top: auto;
+}
+
 .product-price {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 800;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    color: var(--cat-color);
+    white-space: nowrap;
 }
 
 /* Botón Añadir al Carrito */
@@ -320,26 +388,31 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.35rem;
-    background-color: var(--primary-color);
+    gap: 0.3rem;
+    background-color: var(--whatsapp-color);
     color: #ffffff;
     text-decoration: none;
-    padding: 0.55rem 0.5rem;
+    padding: 0.5rem 0.65rem;
     border-radius: 10px;
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 0.2px;
-    transition: all var(--transition-speed);
-    min-height: 38px;
+    transition: all 0.2s ease;
+    min-height: 34px;
     border: none;
     cursor: pointer;
     touch-action: manipulation;
-    width: 100%;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--whatsapp-hover);
+    transform: translateY(-1px);
 }
 
 .btn-whatsapp:active {
-    transform: scale(0.96);
-    opacity: 0.9;
+    transform: scale(0.95);
 }
 
 /* Empty state */
