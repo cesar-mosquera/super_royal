@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0076ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Súper Royal - Catálogo de bicicletas y componentes Shimano. Transmisión, frenos, grupos completos y más.">
+    <title>Súper Royal - Catálogo de Bicicletas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="logo-placeholder">
+                <i class="fa-solid fa-bicycle"></i>
+            </div>
+            <h1>Súper Royal</h1>
+            <p class="slogan">Domina tu camino, conquista la montaña.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters" role="tablist" aria-label="Filtrar por categoría">
+            <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">Todos</button>
+            <button class="filter-btn" data-category="Grupos Completos" role="tab" aria-selected="false">Grupos Completos</button>
+            <button class="filter-btn" data-category="Transmisión" role="tab" aria-selected="false">Transmisión</button>
+            <button class="filter-btn" data-category="Frenos" role="tab" aria-selected="false">Frenos</button>
+            <button class="filter-btn" data-category="Pedales y Eje" role="tab" aria-selected="false">Pedales y Eje</button>
+            <button class="filter-btn" data-category="Electrónicos" role="tab" aria-selected="false">Electrónicos</button>
+            <button class="filter-btn" data-category="E-Bike / MTB" role="tab" aria-selected="false">E-Bike / MTB</button>
+            <button class="filter-btn" data-category="Accesorios" role="tab" aria-selected="false">Accesorios</button>
+        </section>
+
+        <section class="products-grid" id="products-grid" aria-label="Lista de productos">
+            <!-- Products will be injected here by JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Súper Royal. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Cart Floating Button -->
+    <button class="cart-floating-btn" id="cart-btn" aria-label="Abrir carrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </button>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar" aria-hidden="true">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button class="close-cart-btn" id="close-cart-btn" aria-label="Cerrar carrito">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items del carrito se inyectarán aquí -->
+        </div>
+        <div class="cart-footer">
+            <button class="clear-cart-btn" id="clear-cart-btn">Vaciar Carrito</button>
+            <button class="whatsapp-checkout-btn" id="whatsapp-checkout-btn">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Pedido
+            </button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
