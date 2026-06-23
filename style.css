@@ -82,10 +82,10 @@ a {
     aspect-ratio: 664 / 433;        /* proporción exacta de la foto */
     max-height: 55vh;               /* no ocupa más de 55% pantalla en desktop */
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
-    padding: 1rem 1rem 1.5rem;
+    padding: 1.5rem 1rem 1rem;
     position: relative;
 }
 
