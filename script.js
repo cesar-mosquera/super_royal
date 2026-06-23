@@ -7,7 +7,7 @@ const productos = [
         categoria: "Transmisión",
         descripcion: "Modelos disponibles: CN-HG40, HG53, HG601, HG701. Ideales para un cambio suave y preciso.",
         precio: "Consultar",
-        imagen: "assets/img/cadena.png"
+        imagen: "assets/img/cadena.webp"
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const productos = [
         categoria: "Transmisión",
         descripcion: "Disponibles en 7v, 8v, 9v, 10v, 11v y 12v. Máxima durabilidad y rendimiento en cada pedaleo.",
         precio: "Consultar",
-        imagen: "assets/img/cassette.png"
+        imagen: "assets/img/cassette.webp"
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ const productos = [
         categoria: "Transmisión",
         descripcion: "Modelos como FC-TY301, FC-MT210, FC-R7000, etc. Transferencia de potencia óptima.",
         precio: "Consultar",
-        imagen: "assets/img/plato.png"
+        imagen: "assets/img/plato.webp"
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ const productos = [
         categoria: "Transmisión",
         descripcion: "Modelos FD-TY500, FD-M3100 y más. Cambios frontales rápidos y seguros.",
         precio: "Consultar",
-        imagen: "assets/img/desviador_delantero.png"
+        imagen: "assets/img/desviador_delantero.webp"
     },
     {
         id: 5,
@@ -39,7 +39,7 @@ const productos = [
         categoria: "Transmisión",
         descripcion: "RD-TY300, RD-M3100, RD-R7000. Precisión Shimano para cualquier terreno.",
         precio: "Consultar",
-        imagen: "assets/img/cambio_trasero.png"
+        imagen: "assets/img/cambio_trasero.webp"
     },
     {
         id: 6,
@@ -47,7 +47,7 @@ const productos = [
         categoria: "Transmisión",
         descripcion: "SL-TX30, SL-M315, SL-M4100. Control ergonómico y cambios instantáneos al alcance de tus dedos.",
         precio: "Consultar",
-        imagen: "assets/img/mandos.png"
+        imagen: "assets/img/mandos.webp"
     },
     {
         id: 7,
@@ -55,7 +55,7 @@ const productos = [
         categoria: "Frenos",
         descripcion: "Modelos BL-T4000, BL-MT200 (Mecánicos). Frenado seguro y confiable.",
         precio: "Consultar",
-        imagen: "assets/img/manetas_vbrake.png"
+        imagen: "assets/img/manetas_vbrake.webp"
     },
     {
         id: 8,
@@ -63,7 +63,7 @@ const productos = [
         categoria: "Frenos",
         descripcion: "S65T, R55C4. Excelente potencia de frenado en condiciones secas o húmedas.",
         precio: "Consultar",
-        imagen: "assets/img/zapatas_freno.png"
+        imagen: "assets/img/zapatas_freno.webp"
     },
     {
         id: 9,
@@ -71,7 +71,7 @@ const productos = [
         categoria: "Frenos",
         descripcion: "BR-MT200, BR-MT410, BR-MT520. Potencia de frenado progresiva y fuerte.",
         precio: "Consultar",
-        imagen: "assets/img/calipers_freno.png"
+        imagen: "assets/img/calipers_freno.webp"
     },
     {
         id: 10,
@@ -79,7 +79,7 @@ const productos = [
         categoria: "Frenos",
         descripcion: "BL-MT200, BL-MT401. Diseño ergonómico de 2 o 3 dedos.",
         precio: "Consultar",
-        imagen: "assets/img/manetas_hidraulico.png"
+        imagen: "assets/img/manetas_hidraulico.webp"
     },
     {
         id: 11,
@@ -87,7 +87,7 @@ const productos = [
         categoria: "Frenos",
         descripcion: "Líquido de frenos original para un mantenimiento perfecto de tu sistema hidráulico.",
         precio: "Consultar",
-        imagen: "assets/img/aceite_mineral.png"
+        imagen: "assets/img/aceite_mineral.webp"
     },
     {
         id: 12,
@@ -95,7 +95,7 @@ const productos = [
         categoria: "Frenos",
         descripcion: "Modelos SM-RT10, SM-RT56, SM-RT70. Disipación de calor superior y frenado constante.",
         precio: "Consultar",
-        imagen: "assets/img/discos_rotores.png"
+        imagen: "assets/img/discos_rotores.webp"
     },
     {
         id: 13,
@@ -103,7 +103,7 @@ const productos = [
         categoria: "Pedales y Eje",
         descripcion: "Modelos PD-M520, PD-R550, PD-EH500. Eficiencia y durabilidad comprobada en cada pedaleo.",
         precio: "Consultar",
-        imagen: "assets/img/pedales.png"
+        imagen: "assets/img/pedales.webp"
     },
     {
         id: 14,
@@ -111,7 +111,7 @@ const productos = [
         categoria: "Pedales y Eje",
         descripcion: "Modelos BB-UN300, BB-MT500. Rodamiento suave y sellado resistente al agua y suciedad.",
         precio: "Consultar",
-        imagen: "assets/img/eje_centro.png"
+        imagen: "assets/img/eje_centro.webp"
     },
     {
         id: 15,
@@ -119,7 +119,7 @@ const productos = [
         categoria: "Electrónicos",
         descripcion: "Modelos BT-DN300, BT-DN110. Energía de larga duración para tu sistema de cambios electrónicos.",
         precio: "Consultar",
-        imagen: "assets/img/di2_bateria.png"
+        imagen: "assets/img/di2_bateria.webp"
     },
     {
         id: 16,
@@ -127,7 +127,7 @@ const productos = [
         categoria: "Electrónicos",
         descripcion: "Modelos R7150, R9250. Cambios hiper-rápidos y precisos con tecnología Di2.",
         precio: "Consultar",
-        imagen: "assets/img/cambio_electronico.png"
+        imagen: "assets/img/cambio_electronico.webp"
     },
     {
         id: 17,
@@ -135,7 +135,7 @@ const productos = [
         categoria: "Electrónicos",
         descripcion: "Cables EW-SD50 y cajas de conexión para integrar todo el sistema electrónico en tu cuadro.",
         precio: "Consultar",
-        imagen: "assets/img/cables_junctions.png"
+        imagen: "assets/img/cables_junctions.webp"
     },
     {
         id: 18,
